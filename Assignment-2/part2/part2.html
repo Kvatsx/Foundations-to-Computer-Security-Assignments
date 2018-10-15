@@ -1,0 +1,50 @@
+<HTML>
+	<style type="text/css">
+		div.board {border:1px solid #A4A4A4;
+		padding:3px;background-color:#EEEEEE;width:'70%';text-align:left;}
+	</style>
+	<script type="text/javascript">
+		var newDiv = null;
+		function Write()
+		{ 
+			var userInput = document.getElementById('userInput').value;
+			var _body = document.getElementsByTagName('body') [0];
+			var a = "<Center><div class='board'>";
+			var b = "</div></Center>";
+			newDiv = document.createElement("div");
+			userInput = userInput.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+			newDiv.innerHTML = a+userInput+b;
+			_body.appendChild(newDiv);
+		}
+	</script>
+	<body>
+		<P align=center><b><font color="#003399" size="5"><br>CSE345/545 Foundation to Computer
+		Security</br></b> <i>Monsoon 2018</i></font></p>
+
+		<CENTER><IMG id="logo" src="
+		https://az616578.vo.msecnd.net/files/2016/06/17/636017786945631331-1203241112_informatio
+		n-age.jpg"> <BR><BR>
+
+		<a href=" https://www.iiitd.ac.in/" target=_blank> Go to IIIT-D homepage </a> <BR><BR>
+		<a href=" http://mail.iiitd.ac.in/" target=_blank> Check your email</a> <BR><BR><BR>
+
+		<font color="#003399" size="5"> <b> Discussion Board </b> </font><BR><BR>
+		<div class="board">
+			<input type='text' id='userInput' size='100' value='Enter your input here' />
+			<input type='button' onclick='Write()' value='Submit'/> <BR><BR>
+		</div>
+
+		<div class="board">This discussion board is vulnerable to Cross-Site Scripting (XSS) attack.</div>
+		<div class="board"> Hi <a href="javascript:void(document.getElementById('logo').src='https://www.wpblog.com/wp-content/uploads/2017/08/wordpress-site-is-hacked.jpg');"> check out this cool link </a> </div>
+
+		<div class="board"> Hello, <a href="javascript:void(document.getElementsByTagName('a')[0].href='http://www.google.com');"
+		> see this page </a> </div>
+
+		<div class="board"><a href="javascript:void(document.getElementById('logo').src='https://www.wpblog.com/wp-content/uploads/2017/08/wordpress-site-is-hacked.jpg');">click me</a></div>
+		<div class="board">
+			<a href="javascript:void(document.getElementsByTagName('a')[1].href='https://www.reddit.com/r/hacking/');">click me Reddit</a>
+		</div>
+
+
+	</BODY>
+</HTML>
